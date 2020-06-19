@@ -1,17 +1,34 @@
+let totalWidth = 0;
 let canvasWidth = 0;
 let canvasHeight = 0;
-let pageNo = 1;
-let maxPages = 1;
+let margin = 0;
+let paperWidth = 0;
 let columnCount = 3;
 
+function calcLayout() {
+  if( typeof(window.innerWidth) === 'number') {
+    canvasWidth = window.innerWidth;
+    canvasHeight = window.innerHeight;
+  }
+  else {
+    canvasWidth = $(window).width();
+    canvasHeight = $(window).heignt();
+  }
+  paperWidth = $('.paper').width();
+  margin = (canvasWidth - paperWidth)/2;
+  totalWidth = $('.paper')[0].scrollWidth;
+  //console.log('totalWidth', totalWidth, 'canvasWidth', canvasWidth, 'paperWidth', paperWidth, 'margin', margin,'scrollLeft', $('.paper').scrollLeft());
+}
+
 function updateButtons() {
-  if(pageNo === 1) {
+  calcLayout();
+  if($('.paper').scrollLeft() < 1) {
     $("#prev").hide();
     $("#next").show();
   }
   else {
     $("#prev").show();
-    if(pageNo<maxPages)
+    if($('.paper').scrollLeft() < (totalWidth-(paperWidth+(margin*2))))
     {
       $("#next").show();
     }
@@ -23,56 +40,37 @@ function updateButtons() {
 }
 
 function scrollHome() {  
-  const paperWidth = $('.paper').width();
-  const margin = (canvasWidth - paperWidth)/2;
-  const scrollWidth = (paperWidth + margin) * pageNo;
-  $('.paper').stop().animate({scrollLeft: `-=${scrollWidth}`}, 600);
-  pageNo = 1;
+  calcLayout();
+  $('.paper').stop().animate({scrollLeft: 0}, 600);
   updateButtons();  
 }
 
-function scrollEnd() {  
-  const paperWidth = $('.paper').width();
-  const margin = (canvasWidth - paperWidth)/2;
-  pageNo = maxPages - 1;
-  const scrollWidth = (paperWidth + margin) * pageNo;
-  $('.paper').stop().animate({scrollLeft: `+=${scrollWidth}`}, 600);
+function scrollEnd() { 
+  calcLayout();
+  const offset = totalWidth - (paperWidth+margin);    
+  $('.paper').stop().animate({scrollLeft: offset}, 600);
   updateButtons();  
 }
 
 function scrollLeft() {  
-  const paperWidth = $('.paper').width();
-  const margin = (canvasWidth - paperWidth)/2;
+  calcLayout();
   const scrollWidth = paperWidth + margin;
-  $('.paper').stop().animate({scrollLeft: `-=${scrollWidth}`}, 600);
-  pageNo--;
+  $('.paper').stop().animate({scrollLeft: `-=${scrollWidth}`}, 600);  
   updateButtons();  
 }
 
 function scrollRight() {
-  if(pageNo<maxPages)
+  calcLayout();
+  if($('.paper').scrollLeft()<canvasWidth)
   {
-    const paperWidth = $('.paper').width();
-    const margin = (canvasWidth - paperWidth)/2;
     const scrollWidth = paperWidth + margin;
     $('.paper').stop().animate({scrollLeft: `+=${scrollWidth}`}, 600);
-    pageNo++;
     updateButtons();  
   }
 }
 
 function setupControls() {
-  totalWidth = $('.paper')[0].scrollWidth;
-  if( typeof(window.innerWidth) === 'number') {
-    canvasWidth = window.innerWidth;
-    canvasHeight = window.innerHeight;
-  }
-  else {
-    canvasWidth = $(window).width();
-    canvasHeight = $(window).heignt();
-  }
-  maxPages = totalWidth/canvasWidth;
-  console.log('maxPages', maxPages);
+  calcLayout();
   $("#next").click(function(){
     scrollRight();
     return false;
@@ -81,17 +79,20 @@ function setupControls() {
     scrollLeft();
     return false;
   });
-  $(document).keydown(function(event) {  
+  $('.paper').on('scroll', function (e) {    
+    updateButtons();
+  });
+  $(document).keydown(function(event) {
     if(event.code === 'ArrowRight') {
       scrollRight();
     }
     if(event.code === 'ArrowLeft') {
       scrollLeft();
     }
-    if(event.code === 'Home') {
+    if(event.code === 'Home' || event.code == 'ArrowUp') {
       scrollHome();
     }
-    if(event.code === 'End') {
+    if(event.code === 'End' || event.code == 'ArrowDown') {
       scrollEnd();
     }
     if(event.code === 'Minus')
@@ -102,7 +103,6 @@ function setupControls() {
       }
       $('.paper').css('column-count', columnCount);
     }
-    console.log(event.code);
     if(event.code === 'Plus' || event.code === 'Equal')
     { 
       if(columnCount<4) {

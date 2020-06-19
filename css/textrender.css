@@ -1065,6 +1065,17 @@ table > table {
   }
 }
 
+.paper__page-prev {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  margin-top: -50px;
+  height: 100px;
+  width: 100px;
+  border: 1px solid #b3ce46;
+  background-color: #fff;
+}
+
 .paper__page-next {
   position: fixed;
   right: 0;

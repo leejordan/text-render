@@ -28,6 +28,17 @@
 	}
 }
 
+.paper__page-prev {
+	position: fixed;
+	left: 0;
+	top: 50%;
+	margin-top: -50px;
+	height: 100px;
+	width: 100px;
+	border: $border-default;
+	background-color: $colour-white;
+}
+
 .paper__page-next {
 	position: fixed;
 	right: 0;

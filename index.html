@@ -5,10 +5,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="css/textrender.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="script.js"></script>
   </head>
   <body class="scaffold preload" id="scaffold">
     <main class="paper">
-      <button class="paper__page-next">next page ></button>
+      <button id='next' class="paper__page-next">next page ></button>
       <header class="paper__header">
         <ul class="paper__identifiers">      
           <li class="paper__identifiers-item">
@@ -341,5 +343,10 @@
         </footer>
       </article>
     </main>
+    <script>
+    $(document).ready(function() {
+      setupControls();
+    });  
+    </script>
   </body>
 </html>

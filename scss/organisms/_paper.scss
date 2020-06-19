@@ -25,6 +25,12 @@
 	@media only screen and (min-width: $breakpoint-xlarge) {
 		column-count: 4;
 	}
+
+	@media print {
+		height: auto;
+		width: auto;
+		overflow: visible;
+	}
 }
 
 .paper__page-prev,
@@ -52,9 +58,15 @@
 		color: darkblue;
 	}
 
+	&:active,
+	&:focus {
+		color: darkblue;
+	}
+
 	@media only screen and (min-width: $breakpoint-desktop) {
 		top: 35%;
-		width: 10%;
+		width: 20%;
+		max-width: 150px;
 		background-size: 3em;
 		border-bottom-right-radius: 50%;
 	}
@@ -133,7 +145,11 @@
 }
 
 .paper__ref-link {
-
+	display: inline-block;
+	@include font-size(1);
+	padding:  0 0.25em;
+	text-decoration: none;
+	background-color: $colour-ui-card;
 }
 
 .paper__link-ext {
@@ -154,4 +170,13 @@
 		padding-bottom: $section-spacing-small;
 		margin-bottom: $section-spacing-small;
 	}
+}
+
+.paper__footer-link {
+	display: block;
+}
+
+.paper__footer-link-info {
+	@include font-size(.8);
+	line-height: $line-height-small;
 }

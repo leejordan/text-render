@@ -1180,6 +1180,10 @@ table > table {
   margin-bottom: 0.75rem;
 }
 
+.paper__figure img {
+  margin-bottom: 0.75rem;
+}
+
 .paper__footer-link {
   display: block;
 }

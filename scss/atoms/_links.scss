@@ -13,3 +13,7 @@
 a {
     @extend %link-default;
 }
+
+*:target {
+	background-color: yellow;
+}

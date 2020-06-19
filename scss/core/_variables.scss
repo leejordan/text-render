@@ -35,7 +35,7 @@ $colour-text-muted: #636F7D;
 //
 // Styleguide Core.Colours.Brand
 
-$colour-brand-primary: #3D8C61;
+$colour-brand-primary: darkblue;
 $colour-brand-secondary: #b3ce46;
 
 
@@ -44,7 +44,7 @@ $colour-brand-secondary: #b3ce46;
 // Colors for various UI elements such as buttons and cards
 
 $colour-state-success: #00C891;
-$colour-ui-border: #FAB9B9;
+$colour-ui-border: $colour-brand-secondary;
 $colour-ui-card: #F8F8F8;
 $colour-ui-card-hover: darken($colour-ui-card, 5%);
 $colour-ui-card-action: darken($colour-ui-card, 10%);
@@ -59,7 +59,7 @@ $colour-ui-selected: #C8DDF6;
 
 // Typography
 
-$font-family-base: Helvetica, Arial, sans-serif;
+$font-family-base: 'lato', Helvetica, Arial, sans-serif;
 $font-family-mono: monospace;
 $font-size-small: 16px;
 $font-size-base: 18px;

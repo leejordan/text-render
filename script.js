@@ -56,7 +56,6 @@ function scrollRight() {
     const margin = (canvasWidth - paperWidth)/2;
     const scrollWidth = paperWidth + margin;
     $('.paper').stop().animate({scrollLeft: `+=${scrollWidth}`}, 600);
-    horzOffset += scrollWidth;
     pageNo++;
     updateButtons();  
   }

@@ -5,18 +5,17 @@
 	overflow-x: scroll;
 	overflow-y: hidden;
 	column-count: 1;
-	column-gap: $section-spacing-small;
-	padding: $section-spacing-small;
+	column-gap: $section-spacing-base;
+	padding: $section-spacing-base;
 
 	@media only screen and (min-width: $breakpoint-laptop) {
 		column-count: 2;
-		column-gap: $section-spacing-large;
-		padding: $section-spacing-large;
+		column-gap: $section-spacing-xlarge;
+		padding: $section-spacing-xlarge;
 	}
 
 	@media only screen and (min-width: $breakpoint-desktop) {
-		column-gap: $section-spacing-xlarge;
-		padding: $section-spacing-xlarge;
+
 	}
 
 	@media only screen and (min-width: $breakpoint-large) {
@@ -24,30 +23,61 @@
 	}
 
 	@media only screen and (min-width: $breakpoint-xlarge) {
+		column-count: 4;
+	}
+}
 
+.paper__page-prev,
+.paper__page-next {
+	opacity: .2;
+	position: fixed;
+	left: 0;
+	top: 70%;
+	padding: 0;
+	padding-left: 2em;
+	height: 30%;
+	width: 30%;
+	border: 0;
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 50%;
+	background-color: transparent;
+	background-size: 2em;
+	background-position: 0;
+	background-repeat: no-repeat;
+	color: transparent;
+
+	&:hover {
+		opacity: .8;
+		background-color: $colour-white;
+		color: darkblue;
+	}
+
+	@media only screen and (min-width: $breakpoint-desktop) {
+		top: 35%;
+		width: 10%;
+		background-size: 3em;
+		border-bottom-right-radius: 50%;
 	}
 }
 
 .paper__page-prev {
-	position: fixed;
-	left: 0;
-	top: 50%;
-	margin-top: -50px;
-	height: 100px;
-	width: 100px;
-	border: $border-default;
-	background-color: $colour-white;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1792' height='1792' viewBox='0 0 1792 1792'%3E%3Cpath d='M1427 301l-531 531 531 531q19 19 19 45t-19 45l-166 166q-19 19-45 19t-45-19l-742-742q-19-19-19-45t19-45l742-742q19-19 45-19t45 19l166 166q19 19 19 45t-19 45z' fill='darkblue'/%3E%3C/svg%3E");
 }
 
 .paper__page-next {
-	position: fixed;
+	left: auto;
 	right: 0;
-	top: 50%;
-	margin-top: -50px;
-	height: 100px;
-	width: 100px;
-	border: $border-default;
-	background-color: $colour-white;
+	padding-left: 0;
+	padding-right: 2em;
+	border-top-right-radius: 0;
+	border-top-left-radius: 50%;
+	background-position: 100%;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1792' height='1792' viewBox='0 0 1792 1792'%3E%3Cpath d='M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z' fill='darkblue'/%3E%3C/svg%3E");
+
+	@media only screen and (min-width: $breakpoint-desktop) {
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 50%;
+	}
 }
 
 .paper__header {

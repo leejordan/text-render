@@ -35,8 +35,8 @@ $colour-text-muted: #636F7D;
 //
 // Styleguide Core.Colours.Brand
 
-$colour-brand-primary: #FF0000;
-$colour-brand-secondary: #FFE5E5;
+$colour-brand-primary: #3D8C61;
+$colour-brand-secondary: #b3ce46;
 
 
 // UI Colours
@@ -50,7 +50,7 @@ $colour-ui-card-hover: darken($colour-ui-card, 5%);
 $colour-ui-card-action: darken($colour-ui-card, 10%);
 $colour-ui-icon: #bdcde0;
 $colour-ui-link: $colour-brand-primary;
-$colour-ui-link-hover: $colour-brand-secondary;
+$colour-ui-link-hover: darken($colour-ui-link, 10%);
 $colour-ui-button: $colour-ui-link;
 $colour-ui-button-hover: #F8DEDE;
 $colour-ui-button-overlay: rgba($colour-white, .75);

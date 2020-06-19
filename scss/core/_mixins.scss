@@ -1,0 +1,22 @@
+@mixin font-size($size: 1) {
+    font-size: ($font-size-base * $size);
+    font-size: #{$size}rem;
+}
+
+@mixin svg-inline(
+        $colour: $colour-white,
+        $width: 1em,
+        $height: 1em
+    ) {
+
+    svg.icon {
+        width: $width;
+        height: $height;
+        vertical-align: middle;
+
+        path {
+            //transition: fill $anim-time-short ease-out;
+            fill: $colour;
+        }
+    }
+}

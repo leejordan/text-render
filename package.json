@@ -1,0 +1,19 @@
+{
+  "name": "text-render",
+  "version": "0.0.1",
+  "description": "render text at the most readable format for current viewport size",
+  "keywords": [
+    "html",
+    "css"
+  ],
+  "author": "@leejordan",
+  "license": "MIT",
+  "homepage": "",
+  "scripts": {
+    "build": "node-sass-chokidar --precision 8 --output-style expanded scss/textrender.css.scss css/textrender.css",
+    "watch": "node-sass-chokidar --watch --recursive --precision 8 --output-style expanded scss/textrender.css.scss css/textrender.css"
+  },
+  "devDependencies": {
+    "node-sass-chokidar": "0.0.3"
+  }
+}

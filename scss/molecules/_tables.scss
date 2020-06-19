@@ -1,0 +1,257 @@
+// Tables
+//
+// For the display of data.
+//
+// table-centered - Vertically centered cells
+//
+// Markup:
+// <table class="{{ modifier_class }}">
+//     <thead>
+//         <tr>
+//             <th>First Name</th>
+//             <th>Last Name</th>
+//             <th>Points</th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td>Jill</td>
+//             <td>Smith</td>
+//             <td>50</td>
+//         </tr>
+//         <tr>
+//             <td>Eve</td>
+//             <td>Jackson</td>
+//             <td>94</td>
+//         </tr>
+//         <tr>
+//             <td>Barry</td>
+//             <td>Pickles</td>
+//             <td>23</td>
+//         </tr>
+//     </tbody>
+//     <tfoot>
+//         <tr>
+//             <td colspan="2">Total: 150</td>
+//             <td>2018</td>
+//         </tr>
+//     </tfoot>
+// </table>
+//
+// Styleguide Molecules.Tables
+
+table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: $section-spacing-small;
+    background-color: $colour-white;
+
+    // Cells
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr {
+            border: $border-default;
+
+            > th,
+            > td {
+                @extend %inner-content-margin-reset;
+                padding: $section-spacing-xsmall $section-spacing-small;
+                line-height: $line-height-base;
+                vertical-align: top;
+                border-left: $border-default;
+
+                &:first-child {
+                    border-left: 0;
+                }
+            }
+        }
+    }
+    > thead,
+    > tfoot {
+        font-weight: $font-weight-bold;
+    }
+    > thead {
+        > tr {
+            border-bottom: $border-large;
+
+            > th,
+            > td {
+                vertical-align: bottom;
+                border-left: $border-default;
+            }
+        }
+    }
+    > tfoot {
+        > tr {
+            > td {
+                border-top: $border-large;
+            }
+        }
+    }
+    > tbody {
+        > tr {
+            &:nth-child(even) {
+                background-color: $colour-ui-card;
+            }
+
+            > th {
+                font-weight: $font-weight-bold;
+            }
+
+            &:hover {
+                background-color: darken($colour-ui-card, 5%);
+            }
+        }
+    }
+    > tr {
+        > th {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    // Account for multiple tbody instances
+    > tbody + tbody {
+        border-top: $border-large;
+    }
+
+    // Nesting
+    > table {
+        background-color: $colour-white;
+    }
+}
+
+
+// Vertical centered
+//
+// vertically centers content of a td
+
+.table-centered {
+    > tbody {
+        > tr {
+            > td {
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+
+// Responsive Tables
+//
+// *please note* Responsive tables require the attribute `data-label` on every
+// `<td>` element. This attribute should contain the `<th>` for the column and
+// is used to populate the table when below tablet viewport size.
+//
+// Markup:
+// <table class="table-responsive">
+//     <thead>
+//         <tr>
+//             <th>First Name</th>
+//             <th>Last Name</th>
+//             <th>Points</th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td data-label="First name">Jill</td>
+//             <td data-label="Last name">Trent</td>
+//             <td data-label="Points">50</td>
+//         </tr>
+//         <tr>
+//             <td data-label="First name">Barry</td>
+//             <td data-label="Last name">Pickles</td>
+//             <td data-label="Points">98</td>
+//         </tr>
+//         <tr>
+//             <td data-label="First name">Steve</td>
+//             <td data-label="Last name">Giblets</td>
+//             <td data-label="Points">2</td>
+//         </tr>
+//     </tbody>
+//     <tfoot>
+//         <tr>
+//             <td colspan="3">Total: 150</td>
+//         </tr>
+//     </tfoot>
+// </table>
+//
+// Styleguide Molecules.Tables.Responsive
+
+
+.table-responsive {
+    @media only screen and (max-width: ($breakpoint-mobile - 1)) {
+        display: block;
+
+        thead,
+        tbody,
+        tfoot,
+        tr,
+        td,
+        th {
+            display: block;
+        }
+
+        thead {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        tbody {
+            tr {
+                border: $border-default;
+                border-top: $border-large;
+                margin-bottom: $section-spacing-base;
+            }
+
+            td {
+                position: relative;
+                padding: $section-spacing-xsmall $section-spacing-small $section-spacing-xsmall 30% !important;
+                vertical-align: middle !important;
+                min-height: $section-spacing-base;
+                border-left: 0;
+                border-bottom: $border-default;
+
+                &::before {
+                    content: attr(data-label);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    height: 100%;
+                    width: 28%;
+                    padding: $section-spacing-xsmall $section-spacing-small;
+                    margin: 0 $section-spacing-base 0 0;
+                    border-right: $border-default;
+                    font-weight: $font-weight-bold;
+                    text-align: right;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                }
+
+                &:first-of-type {
+                    border-top: 0;
+                }
+
+                &:empty {
+                    min-height: auto;
+                    padding: 0 !important;
+                    border-top: 0;
+
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,214 @@
+// Typography
+//
+// The standard appearance of typographic elements.
+// All font sizes are calculated relative to a base size of 16px.
+// Below a breakpoint of 767px the base font size is reduced to 14px.
+//
+// Styleguide Atoms.Typography
+
+
+// Headings
+//
+// Markup:
+// <h1>Heading 1</h1>
+// <h2>Heading 2</h2>
+// <h3>Heading 3</h3>
+// <h4>Heading 4</h4>
+// <h5>Heading 5</h5>
+// <h6>Heading 6</h6>
+//
+// Styleguide Atoms.Typography.Headings
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 1em;
+    font-family: $font-family-base;
+    font-weight: $font-weight-base;
+    line-height: $line-height-small;
+    color: $colour-text;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    a {
+        text-decoration: none;
+
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    @include svg-inline($colour-text);
+}
+
+h1 {
+    @include font-size(1.8);
+    font-weight: $font-weight-bold;
+}
+
+h2 {
+    @include font-size(1.4);
+    font-weight: $font-weight-bold;
+}
+
+h3 {
+    @include font-size(1.3);
+}
+
+h4 {
+    @include font-size(1.2);
+}
+
+h5 {
+    @include font-size(1.1);
+}
+
+h6 {
+    @include font-size(1);
+}
+
+
+// Paragraph
+//
+// Markup:
+// <p>Paragraph</p>
+//
+// Styleguide Atoms.Typography.Paragraph
+
+p {
+    margin: 0 0 1.5em;
+}
+
+
+// Small
+//
+// Small text is smaller in relation to the font size of the parent element, rather than a fixed value.
+//
+// Markup:
+// <h2>A heading with <small>small text</small></h2>
+// <p>This paragragh contains some <small>small text</small> to demonstrate</p>
+//
+// Styleguide Atoms.Typography.Small
+
+small {
+    font-size: .85em;
+}
+
+
+// Strong
+//
+// Markup:
+// <strong>Strong text</strong>
+//
+// Styleguide Atoms.Typography.Strong
+
+b,
+strong {
+    font-weight: $font-weight-bold;
+}
+
+
+// Emphasis
+//
+// Markup:
+// <em>emphasised text</em>
+//
+// Styleguide Atoms.Typography.Emphasis
+
+em {
+    font-style: italic;
+}
+
+
+// Blockquote
+//
+// Markup:
+// <blockquote>
+//     <p>
+//         Blockquote with optional footer.
+//     </p>
+//     <footer>
+//         Lee Jordan
+//     </footer>
+// </blockquote>
+//
+// Styleguide Atoms.Typography.Blockquote
+
+blockquote {
+    position: relative;
+    margin: 0 0 .75em;
+    padding-left: .75em;
+    color: $colour-text-muted;
+    border-left: $border-default;
+
+    cite,
+    footer {
+        color: $colour-text;
+        font-weight: $font-weight-base;
+    }
+}
+
+// Horizontal rule
+//
+// Markup:
+// <hr>
+//
+// Styleguide Atoms.Typography.Horizontal rule
+
+hr {
+    height: 0;
+    margin: 1em 0;
+    border: 0;
+    border-top: $border-default;
+}
+
+// Mark
+//
+// Markup:
+// <p>A way to <mark>highlight</mark> some text</p>
+//
+// Styleguide Atoms.Typography.Mark
+
+code {
+    padding: 2px 4px;
+    background: $colour-ui-card;
+}
+
+
+// Pre formatted text
+//
+// Markup:
+// <pre>¯\_(ツ)_/¯  - hi!</pre>
+//
+// Styleguide Atoms.Typography.Preformatted
+
+pre {
+    width: 100%;
+    overflow: auto;
+    @include font-size(.8);
+    font-family: $font-family-mono;
+
+    code {
+        padding: 0;
+    }
+}
+
+
+// Code
+//
+// Markup:
+// <p>When writing CSS you can use <code>padding: 0;</code> to remove padding</p>
+//
+// Styleguide Atoms.Typography.Code
+
+code {
+    padding: 2px 4px;
+    background: $colour-ui-card;
+}

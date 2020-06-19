@@ -1,0 +1,107 @@
+// Lists
+//
+// The standard appearance of lists
+//
+// Styleguide Atoms.Lists
+
+
+// Ordered list
+//
+// Markup:
+// <ol>
+//    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+//    <li>Aliquam tincidunt mauris eu risus.</li>
+//    <li>Vestibulum auctor dapibus neque.</li>
+// </ol>
+//
+// Styleguide Atoms.Lists.Ordered
+
+ol {
+    margin: 1em 0;
+    padding: 0 0 0 1.5em;
+}
+
+
+// Unordered list
+//
+// Markup:
+// <ul>
+//    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+//    <li>Aliquam tincidunt mauris eu risus.</li>
+//    <li>Vestibulum auctor dapibus neque.</li>
+// </ul>
+//
+// Styleguide Atoms.Lists.Unordered
+
+ul {
+    margin: 1em 0;
+    padding: 0 0 0 1.5em;
+}
+
+
+// Unstyled list
+//
+// Works with both ordered and unordered lists to remove the number or bullet point.
+//
+// Markup:
+// <ul class="list-unstyled">
+//    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+//    <li>Aliquam tincidunt mauris eu risus.</li>
+//    <li>Vestibulum auctor dapibus neque.</li>
+// </ul>
+//
+// Styleguide Atoms.Lists.Unstyled
+
+.list-unstyled {
+    @extend %list-unstyled;
+}
+
+
+// Inline list
+//
+// Makes list items appear inline. Useful for a list of links in a sub nav.
+//
+// Markup:
+// <ul class="list-inline">
+//    <li><a href="#0">Terms and conditions</a></li>
+//    <li><a href="#0">Privacy policy</a></li>
+//    <li><a href="#0">Legal info</a></li>
+// </ul>
+//
+// Styleguide Atoms.Lists.Inline
+
+.list-inline {
+    @extend %list-unstyled;
+    @extend %list-inline;
+}
+
+// Description list
+//
+// A list with items that have descriptions.
+//
+// Markup:
+// <dl>
+//     <dt>Song</dt>
+//     <dd>A short metrical composition intended or adapted for singing, especially one in rhymed stanzas; a lyric; a ballad.</dd>
+//     <dt>Book</dt>
+//     <dd>A handwritten or printed work of fiction or nonfiction, usually on sheets of paper fastened or bound together within covers.</dd>
+// </dl>
+//
+// Styleguide Atoms.Lists.Description
+
+dl {
+    margin: 1em 0;
+}
+
+dt {
+    font-weight: $font-weight-bold;
+}
+
+dd {
+    margin-bottom: 1em;
+    color: $colour-text-muted;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}

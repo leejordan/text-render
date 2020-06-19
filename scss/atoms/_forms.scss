@@ -1,0 +1,251 @@
+// Forms
+//
+// Inputs, textareas, and selects. The atomic parts of forms.
+//
+// Styleguide Atoms.Forms
+
+
+// Label
+//
+// Markup:
+// <label for="name">Your name</label>
+//
+// Styleguide Atoms.Forms.Label
+
+label {
+    display: block;
+    width: 100%;
+    margin-bottom: ($font-size-base * .31);
+    color: $colour-text;
+}
+
+legend {
+    margin: 1em 0 .5em;
+    @include font-size(1.3);
+    font-weight: $font-weight-bold;
+    line-height: $line-height-base;
+    color: $colour-brand-secondary;
+    letter-spacing: .02em;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+
+// Input
+//
+// Styles applied by default to the following elements:
+//
+// ``` markup
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+// ```
+//
+// Please note that `display: block;` and `width: 100%;` are set by default so these
+// elements always take up the full width of their containing element. Use the grid to control form width.
+//
+// Inputs should always have a label. Do not rely on placeholder only.
+//
+// Markup:
+// <label for="name">Your name</label>
+// <input id="name" type="text" name="name"">
+// <label for="password">Your password</label>
+// <input id="password" type="password" name="password" placeholder="default password input">
+// <input type="button" name="submit" value="submit">
+//
+// Styleguide Atoms.Forms.Input
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2.5em;
+    margin-bottom: $section-spacing-small;
+    padding: 0 $section-spacing-small;
+    @include font-size(1);
+    line-height: $line-height-base;
+    color: $colour-text;
+    background-color: $colour-white;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: $border-default;
+    border-radius: 0;
+    //transition: box-shadow ease-in-out $anim-time-short;
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        background-color: $colour-ui-card;
+    }
+
+    &:focus,
+    &:focus-within {
+        outline: none;
+        background-color: $colour-white;
+        border-radius: $border-radius-base;
+        box-shadow: $shadow-form-focus;
+    }
+}
+
+
+// Select
+//
+// We're adding some styling to these but different browsers will ignore some or all of these styles.
+//
+// Please note that `display: block;` and `width: 100%;` are set by default so these
+// elements always take up the full width of their containing element.
+//
+// Markup:
+// <label for="option">Choose an option</label>
+// <select id="option" name="option">
+//     <option value="1">option 1</option>
+//     <option value="2">option 2</option>
+//     <option value="3">option 3</option>
+// </select>
+// <label for="multiple">Choose multiple options</label>
+// <select multiple size="6" id="multiple" name="multiple">
+//     <option value="1">option 1</option>
+//     <option value="2">option 2</option>
+//     <option value="3">option 3</option>
+//     <option value="4">option 4</option>
+//     <option value="5">option 5</option>
+//     <option value="6">option 6</option>
+// </select>
+//
+// Styleguide Atoms.Forms.Select
+
+select[multiple],
+select[size] {
+    padding: $section-spacing-small;
+
+    option {
+        padding: $section-spacing-small;
+        border-radius: 0;
+        color: $colour-text;
+
+        &:hover,
+        &:focus,
+        &:focus-within {
+            background-color: $colour-ui-card;
+        }
+
+        &:focus,
+        &:focus-within,
+        &:checked {
+            color: $colour-text;
+            background-color: $colour-state-success;
+            background-image: linear-gradient(0deg, $colour-state-success, $colour-state-success);
+        }
+    }
+}
+
+// Textarea
+//
+// We set a minimum height and only allow vertical resizing
+//
+// Please note that `display: block;` and `width: 100%;` are set by default so these
+// elements always take up the full width of their containing element.
+//
+// Markup:
+// <label for="comment">Leave a comment</label>
+// <textarea id="comment" name="comment" placeholder="Your comment ..."></textarea>
+//
+// Styleguide Atoms.Forms.Textarea
+
+textarea {
+    padding: $section-spacing-small;
+    resize: vertical; // Only allow vertical resizing of texareas
+    min-height: 10em;
+}
+
+
+// Radio
+//
+// Styles applied by default to radio type inputs.
+//
+// **Please note** that `display: block;` is set by default on labels related to radio
+// inputs so they always take up the full width of their containing element.
+// The label must be directly adjacent to the input in order for the associated styles to work.
+//
+// Markup:
+// <input type="radio" name="radio" id="radio1" value="1" />
+// <label for="radio1"> radio 1</label>
+// <input type="radio" name="radio" id="radio2" value="2" />
+// <label for="radio2"> radio 2</label>
+//
+// Styleguide Atoms.Forms.Radio
+
+// Checkbox
+//
+// Styles applied by default to checkbox type inputs.
+//
+// **Please note** that `display: block;` is set by default on labels related to checkbox
+// inputs so they always take up the full width of their containing element.
+// The label must be directly adjacent to the input in order for the associated styles to work.
+//
+// Markup:
+// <input type="checkbox" name="checkbox" id="checkbox1" value="1" />
+// <label for="checkbox1"> checkbox 1</label>
+// <input type="checkbox" name="checkbox" id="checkbox2" value="2" />
+// <label for="checkbox2"> checkbox 2</label>
+//
+// Styleguide Atoms.Forms.Checkbox
+
+input[type="radio"],
+input[type="checkbox"] {
+    float: left;
+    margin-top: .75em !important;
+    margin-left: 1em;
+
+    &:focus {
+        outline: 3px solid $colour-text;
+        outline: 5px auto -webkit-focus-ring-color;
+    }
+
+    + label {
+        display: block;
+        margin-bottom: ($font-size-base * .31); // same size as default white space between inline elements
+        padding: .5em 1em .5em 2.5em;
+        border-radius: 0;
+
+        &:hover {
+            background-color: rgba($colour-text, .1);
+        }
+    }
+
+    &:checked {
+        + label {
+            color: $colour-white;
+            background-color: $colour-state-success;
+        }
+    }
+}
+
+

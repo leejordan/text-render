@@ -1,0 +1,39 @@
+%link-default {
+    @include svg-inline($colour-ui-link);
+    color: $colour-ui-link;
+    font-weight: $font-weight-bold;
+    text-decoration: underline;
+    //transition: color $anim-time-short ease-out;
+
+    &:hover,
+    &:focus {
+        @include svg-inline($colour-ui-link-hover);
+        color: $colour-ui-link-hover;
+    }
+}
+
+%list-unstyled {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+%list-inline {
+    li {
+        display: inline-block;
+        margin-right: 1em;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}
+
+%inner-content-margin-reset {
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}

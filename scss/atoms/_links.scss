@@ -1,0 +1,15 @@
+// Links
+//
+// The standard appearance and behaviour of links without any other class.
+//
+// Links should always use clear messaging and accurately convey the meaning of the link.
+// Avoid using an icon in a text link.
+//
+// Markup:
+// <a href="#0">view all documents</a>
+//
+// Styleguide Atoms.Links
+
+a {
+    @extend %link-default;
+}

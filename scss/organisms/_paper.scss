@@ -6,6 +6,7 @@
 	overflow-y: hidden;
 	padding: $section-spacing-large;
 	column-count: 1;
+	column-gap: 2em;
 }
 
 .paper__page-next {
@@ -17,4 +18,32 @@
 	width: 100px;
 	border: $border-default;
 	background-color: $colour-white;
+}
+
+.paper__header {
+
+}
+
+.paper__identifiers {
+	@extend %list-unstyled;
+	@extend %list-inline;
+	margin: 0 0 $section-spacing-base;
+}
+
+.paper__title {
+
+}
+
+.paper__authors {
+	@extend %list-unstyled;
+	@extend %list-inline;
+}
+
+.paper__journal {
+
+}
+
+.paper__metrics {
+	@extend %list-unstyled;
+	@extend %list-inline;
 }

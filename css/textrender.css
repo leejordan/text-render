@@ -280,17 +280,17 @@ a:hover svg.icon path, a:focus svg.icon path {
   fill: #2e6848;
 }
 
-.list-unstyled, .list-inline {
+.list-unstyled, .list-inline, .paper__identifiers, .paper__authors, .paper__metrics {
   list-style-type: none;
   padding-left: 0;
 }
 
-.list-inline li {
+.list-inline li, .paper__identifiers li, .paper__authors li, .paper__metrics li {
   display: inline-block;
   margin-right: 1em;
 }
 
-.list-inline li:last-of-type {
+.list-inline li:last-of-type, .paper__identifiers li:last-of-type, .paper__authors li:last-of-type, .paper__metrics li:last-of-type {
   margin-right: 0;
 }
 
@@ -1085,6 +1085,7 @@ table > table {
   overflow-y: hidden;
   padding: 2rem;
   column-count: 1;
+  column-gap: 2em;
 }
 
 .paper__page-next {
@@ -1096,4 +1097,8 @@ table > table {
   width: 100px;
   border: 1px solid #FAB9B9;
   background-color: #fff;
+}
+
+.paper__identifiers {
+  margin: 0 0 1rem;
 }
